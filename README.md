@@ -17,9 +17,11 @@
 - Write comprehensive tests to ensure each service works as designed
 - Write nothing but production-level code. No cutting corners!
 
-## `Library & modules`
+## `Libraries & modules & languages`
 
 - `nodeJS`
 - `reactJs`
 - `expressJs`
-- `Axios`
+- `axios`
+- `javascript`
+- `typescript`
