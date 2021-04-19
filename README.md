@@ -1,8 +1,8 @@
-# Microservices-NodeJS-ReactJS
+# Microservices-Blog-App-Using-NodeJS-ReactJS
 
 ## live demo
 
-- [alias](link)
+- [alias](0)
 
 ## `Main concepts/Feature/Topics`
 
@@ -25,3 +25,4 @@
 - `axios`
 - `javascript`
 - `typescript`
+- `concurrently`
