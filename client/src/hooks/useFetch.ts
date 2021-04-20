@@ -8,7 +8,7 @@ interface IMethodProps {
   method: "POST" | "DELETE" | "UPDATE";
   body?: object;
 }
-export function useFetch({ url }: IFetchProps) {
+export function useFetch({ url }: IFetchProps): { loading: any; error: any; data: any } {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<object>();
   const [data, setData] = useState<object | any>();
@@ -28,7 +28,8 @@ export function useFetch({ url }: IFetchProps) {
   useEffect(() => {
     get();
   }, [get]);
-  return [loading, error, data];
+
+  return { loading, error, data };
 }
 
 export const onHttpRequest = async ({ method, url, body }: IMethodProps) => {

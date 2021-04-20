@@ -40,6 +40,7 @@ export default function CreatePost() {
       .then((res) => {
         ToastEmitter({ msg: "Successfully created", type: "success" });
         setLoading(false);
+        setPostTitle("");
       })
       .catch((err) => {
         ToastEmitter({ msg: "Something went wrong, Try again!", type: "error" });

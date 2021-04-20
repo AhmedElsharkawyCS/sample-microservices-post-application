@@ -6,6 +6,7 @@ export default function Home() {
     <div>
       <CreatePost />
       <Divider variant='middle' />
+      <ShowPosts />
     </div>
   );
 }
