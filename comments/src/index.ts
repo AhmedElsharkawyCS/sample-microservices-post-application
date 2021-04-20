@@ -21,7 +21,7 @@ app.post("/posts/:id/comments", (req: Request, res: Response) => {
   const { content } = req.body;
   const commentId = randomBytes(5).toString("hex");
   const elementIndex = postComments.findIndex((i) => i.postId === id);
-  const comment: IComment = { content, id: commentId };
+  const comment: IComment = { content, id: commentId, createdAt: new Date() };
   if (elementIndex >= 0) {
     const { comments } = postComments[elementIndex];
     comments.push(comment);

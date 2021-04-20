@@ -5,4 +5,5 @@ export interface ICommentSByPost {
 export interface IComment {
   id: string;
   content: string;
+  createdAt: Date;
 }

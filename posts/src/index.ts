@@ -17,7 +17,7 @@ app.get("/posts", (req: Request, res: Response) => {
 app.post("/posts", (req: Request, res: Response) => {
   const { title } = req.body;
   const postId = randomBytes(5).toString("hex");
-  const post: IPost = { id: postId, title };
+  const post: IPost = { id: postId, title, createdAt: new Date() };
   posts.push(post);
   res.status(201).send(post);
 });
