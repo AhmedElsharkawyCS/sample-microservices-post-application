@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import { randomBytes } from "crypto";
 import { ICommentSByPost, IComment } from "./@types";
+import axios from "axios";
 
 const port = 4001;
 const app = express();
@@ -30,6 +31,9 @@ app.post("/posts/:id/comments", (req: Request, res: Response) => {
     postComments.push({ postId: id, comments: [comment] });
   }
   const postCs = postComments.find((i) => i.postId === id);
+  //publish event
+  axios.post("http://localhost:4015/events", { type: "CREATE_COMMENT", data: { comment, postId: id } });
+  //end
   res.status(201).send(postCs);
 });
 

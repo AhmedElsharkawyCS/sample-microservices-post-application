@@ -1,7 +1,7 @@
 {
-  "name": "comments-services",
+  "name": "post-services",
   "version": "1.0.0",
-  "description": "This is REST APIs developed using node and express with typescript",
+  "description": "This is async event bus to handle the communication between the services",
   "scripts": {
     "start": "node ./build/server.js",
     "dev": "nodemon --inspect src/index.ts",

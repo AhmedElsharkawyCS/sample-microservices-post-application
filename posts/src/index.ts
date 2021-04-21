@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import { randomBytes } from "crypto";
 import { IPost } from "./@types";
+import axios from "axios";
 
 const port = 4000;
 const app = express();
@@ -18,6 +19,9 @@ app.post("/posts", (req: Request, res: Response) => {
   const { title } = req.body;
   const postId = randomBytes(5).toString("hex");
   const post: IPost = { id: postId, title, createdAt: new Date() };
+  //publish event
+  axios.post("http://localhost:4015/events", { type: "CREATE_POST", data: post });
+  //end
   posts.push(post);
   res.status(201).send(post);
 });
