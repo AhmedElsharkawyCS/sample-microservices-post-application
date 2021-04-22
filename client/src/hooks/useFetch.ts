@@ -12,7 +12,6 @@ export function useFetch({ url }: IFetchProps): { loading: any; error: any; data
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<object>();
   const [data, setData] = useState<object | any>();
-
   const get = useCallback(async () => {
     setLoading(true);
     try {

@@ -21,31 +21,31 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   }),
 );
-
-export default function ShowComments() {
+interface IComment {
+  id: string;
+  content: string;
+  createdAt: Date;
+}
+interface IProps {
+  comments: Array<IComment>;
+}
+export default function ShowComments({ comments }: IProps) {
   const classes = useStyles();
   return (
     <List className={classes.root}>
-      <ListItem alignItems='flex-start'>
-        <ListItemAvatar>
-          <Avatar style={{ backgroundColor: faker.commerce.color() }}>{faker.name.findName()[0]}</Avatar>
-        </ListItemAvatar>
-        <ListItemText primary={faker.name.findName()} secondary={"comment"} />
-      </ListItem>
-      <Divider component='li' />
-      <ListItem alignItems='flex-start'>
-        <ListItemAvatar>
-          <Avatar style={{ backgroundColor: faker.commerce.color() }}>{faker.name.findName()[0]}</Avatar>
-        </ListItemAvatar>
-        <ListItemText primary={faker.name.findName()} secondary={"comment"} />
-      </ListItem>
-      <Divider component='li' />
-      <ListItem alignItems='flex-start'>
-        <ListItemAvatar>
-          <Avatar style={{ backgroundColor: faker.commerce.color() }}>{faker.name.findName()[0]}</Avatar>
-        </ListItemAvatar>
-        <ListItemText primary={faker.name.findName()} secondary={"comment"} />
-      </ListItem>
+      {comments.map((comment, index) => {
+        return (
+          <React.Fragment key={comment.id}>
+            <ListItem alignItems='flex-start'>
+              <ListItemAvatar>
+                <Avatar style={{ backgroundColor: faker.commerce.color() }}>{faker.name.findName()[0]}</Avatar>
+              </ListItemAvatar>
+              <ListItemText primary={faker.name.findName()} secondary={comment.content} />
+            </ListItem>
+            <Divider component='li' />
+          </React.Fragment>
+        );
+      })}
     </List>
   );
 }

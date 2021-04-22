@@ -37,6 +37,12 @@ app.post("/posts/:id/comments", (req: Request, res: Response) => {
   res.status(201).send(postCs);
 });
 
+app.post("/events", (req: Request, res: Response) => {
+  const data = req.body;
+  console.log("Received event:", data);
+  res.status(200).send({ status: "ok" });
+});
+
 app.listen(port, () => {
   console.log("Comments service running on port: " + port);
 });

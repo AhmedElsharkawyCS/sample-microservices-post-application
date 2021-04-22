@@ -6,6 +6,8 @@ import Container from "@material-ui/core/Container";
 import { MuiButton } from "../../shared/Button";
 import { ToastEmitter } from "../../shared/Toastify";
 import { onHttpRequest } from "../../hooks/useFetch";
+import { useDispatch } from "react-redux";
+import { createPost } from "../../redux/actions";
 
 const useStyles = makeStyles((theme: Theme) => ({
   paper: {
@@ -29,6 +31,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export default function CreatePost() {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const [postTitle, setPostTitle] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const handleOnSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -41,6 +44,7 @@ export default function CreatePost() {
         ToastEmitter({ msg: "Successfully created", type: "success" });
         setLoading(false);
         setPostTitle("");
+        dispatch(createPost(res));
       })
       .catch((err) => {
         ToastEmitter({ msg: "Something went wrong, Try again!", type: "error" });

@@ -31,12 +31,10 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 interface IProps {
-  content: string;
-  createdAt: Date;
-  id: string;
+  post: { title: string; createdAt: Date; id: string; comments: Array<any> };
 }
 
-export default function PostCard(props: IProps) {
+export default function PostCard({ post }: IProps) {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -52,19 +50,19 @@ export default function PostCard(props: IProps) {
           </IconButton>
         }
         title={faker.name.findName()}
-        subheader={props.createdAt.toDateString()}
+        subheader={new Date(post.createdAt).toDateString()}
       />
       <CardContent>
         <Typography variant='body2' color='textSecondary' component='p'>
-          {props.content}
+          {post.title}
         </Typography>
         <div style={{ marginTop: 20 }}>
-          <Typography variant='body2' color='primary' component='p' style={{ fontWeight: "bolder", fontSize: "1.4em", width: "-moz-fit-content" }}>
+          <Typography variant='body2' color='primary' component='h4' style={{ fontWeight: "bolder", fontSize: "1.4em", width: "-moz-fit-content" }}>
             <span>Comments</span>
             <Divider />
           </Typography>
-          <ShowComments />
-          <CreateComment postId={props.id} />
+          <ShowComments comments={post.comments} />
+          <CreateComment postId={post.id} />
         </div>
       </CardContent>
       <CardActions disableSpacing>

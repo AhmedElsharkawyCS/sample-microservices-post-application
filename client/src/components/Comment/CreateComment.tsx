@@ -10,6 +10,8 @@ import { ToastEmitter } from "../../shared/Toastify";
 import { onHttpRequest } from "../../hooks/useFetch";
 import { CircularProgress, InputAdornment } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
+import { useDispatch } from "react-redux";
+import { createComment } from "../../redux/actions";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -45,6 +47,7 @@ interface IProps {
 }
 export default function CreateComment({ postId }: IProps) {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const [add, setAdd] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [commentTitle, setCommentTitle] = useState<string>("");
@@ -60,6 +63,7 @@ export default function CreateComment({ postId }: IProps) {
         setLoading(false);
         setCommentTitle("");
         setAdd(false);
+        dispatch(createComment(res));
       })
       .catch((err) => {
         ToastEmitter({ msg: "Something went wrong, Try again!", type: "error" });
