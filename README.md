@@ -16,6 +16,7 @@
 - Understand how enterprise companies design their infrastructure
 - Write comprehensive tests to ensure each service works as designed
 - Write nothing but production-level code. No cutting corners!
+- Use state management like redux
 
 ## `Libraries & modules & languages`
 
