@@ -1,5 +1,5 @@
 FROM node:14
-WORKDIR /comments-service
+WORKDIR /comment-service
 COPY package*.json ./
 RUN npm install
 COPY ./ ./

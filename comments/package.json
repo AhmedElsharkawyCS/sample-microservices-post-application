@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "This is REST APIs developed using node and express with typescript",
   "scripts": {
-    "start": "node ./build/server.js",
+    "start": "node ./build/index.js",
     "dev": "nodemon --inspect src/index.ts",
+    "docker:build": "sh ./build.sh",
     "watch": "tsc -w",
     "build": "tsc"
   },

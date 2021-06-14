@@ -16,15 +16,15 @@ app.post("/events", (req: Request, res: Response) => {
   //push event to events store
   events.push(event);
 
-  axios.post("http://localhost:4000/events", event).catch((err) => {
+  axios.post("http://post-cluster-ip-service:4000/events", event).catch((err) => {
     console.log(err.message);
   });
-  axios.post("http://localhost:4001/events", event).catch((err) => {
-    console.log(err.message);
-  });
-  axios.post("http://localhost:4002/events", event).catch((err) => {
-    console.log(err.message);
-  });
+  // axios.post("http://localhost:4001/events", event).catch((err) => {
+  //   console.log(err.message);
+  // });
+  // axios.post("http://localhost:4002/events", event).catch((err) => {
+  //   console.log(err.message);
+  // });
   res.status(200).send({ status: "ok" });
 });
 

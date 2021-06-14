@@ -1,5 +1,5 @@
 FROM node:14
-WORKDIR /querycd -service
+WORKDIR /query-service
 COPY package*.json ./
 RUN npm install
 COPY ./ ./

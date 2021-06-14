@@ -20,7 +20,7 @@ app.post("/posts", (req: Request, res: Response) => {
   const postId = randomBytes(5).toString("hex");
   const post: IPost = { id: postId, title, createdAt: new Date() };
   //publish event
-  axios.post("http://localhost:4015/events", { type: "CREATE_POST", data: post });
+  axios.post("http://event-bus-cluster-ip-service:4015/events", { type: "CREATE_POST", data: post });
   //end
   posts.push(post);
   res.status(201).send(post);
@@ -33,5 +33,6 @@ app.post("/events", (req: Request, res: Response) => {
 });
 
 app.listen(port, () => {
+  console.log("V3");
   console.log("Posts service running on port: " + port);
 });

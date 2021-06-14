@@ -6,6 +6,7 @@
     "start": "node ./build/index.js",
     "dev": "nodemon --inspect src/index.ts",
     "watch": "tsc -w",
+    "docker:build": "sh ./build.sh",
     "build": "tsc"
   },
   "engines": {

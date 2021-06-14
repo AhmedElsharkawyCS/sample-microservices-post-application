@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "This is a extra service to combine multi service data",
   "scripts": {
-    "start": "node ./build/server.js",
+    "start": "node ./build/index.js",
     "dev": "nodemon --inspect src/index.ts",
+    "docker:build": "sh ./build.sh",
     "watch": "tsc -w",
     "build": "tsc"
   },

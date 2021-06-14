@@ -37,7 +37,7 @@ app.listen(port, () => {
   console.log("Query service running on port: " + port);
   //process all the event that missing when the query service down
   axios
-    .get("http://localhost:4015/events")
+    .get("http://event-bus-cluster-ip-service:4015/events")
     .then(({ data }: any) => {
       for (const event of data) {
         console.log("Processing event: ", event.type);

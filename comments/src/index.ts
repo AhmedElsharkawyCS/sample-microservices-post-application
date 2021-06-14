@@ -32,7 +32,7 @@ app.post("/posts/:id/comments", (req: Request, res: Response) => {
   }
   const postCs = postComments.find((i) => i.postId === id);
   //publish event
-  axios.post("http://localhost:4015/events", { type: "CREATE_COMMENT", data: { comment, postId: id } });
+  axios.post("http://event-bus-cluster-ip-service:4015/events", { type: "CREATE_COMMENT", data: { comment, postId: id } });
   //end
   res.status(201).send(postCs);
 });
