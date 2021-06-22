@@ -13,7 +13,7 @@ export default function ShowPosts() {
   const posts = useSelector((state: any) => state.posts);
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:4002/posts?order=descending")
+    fetch("http://posts.com/posts?order=descending")
       .then(async (res) => {
         const result = await res.json();
         dispatch(getPosts(result));

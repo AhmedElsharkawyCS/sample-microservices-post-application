@@ -57,7 +57,7 @@ export default function CreateComment({ postId }: IProps) {
     const body = {
       content: commentTitle,
     };
-    onHttpRequest({ url: `http://localhost:4001/posts/${postId}/comments`, body, method: "POST" })
+    onHttpRequest({ url: `http://posts.com/posts/${postId}/comments`, body, method: "POST" })
       .then((res) => {
         ToastEmitter({ msg: "Successfully created", type: "success" });
         setLoading(false);

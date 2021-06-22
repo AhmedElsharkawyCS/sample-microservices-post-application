@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-service
+  annotations:
+    # use the shared ingress-nginx
+    kubernetes.io/ingress.class: "nginx"
+  labels:
+    name: ingress-service
+spec:
+  rules:
+    - host: posts.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/posts"
+            backend:
+              service:
+                name: post-cluster-ip-service
+                port:
+                  number: 4000
