@@ -15,7 +15,7 @@ app.use(express.json());
 app.get("/posts", (req: Request, res: Response) => {
   res.status(200).send(posts);
 });
-app.post("/posts", (req: Request, res: Response) => {
+app.post("/posts/create", (req: Request, res: Response) => {
   const { title } = req.body;
   const postId = randomBytes(5).toString("hex");
   const post: IPost = { id: postId, title, createdAt: new Date() };

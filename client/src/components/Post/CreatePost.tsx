@@ -39,7 +39,7 @@ export default function CreatePost() {
     if (!postTitle) return ToastEmitter({ msg: "Invalid post title", type: "error" });
     const body = { title: postTitle };
     setLoading(true);
-    onHttpRequest({ url: "http://posts.com/posts", body, method: "POST" })
+    onHttpRequest({ url: "http://posts.com/posts/create", body, method: "POST" })
       .then((res) => {
         ToastEmitter({ msg: "Successfully created", type: "success" });
         setLoading(false);
